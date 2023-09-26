@@ -22,20 +22,21 @@ const RelaxContainer = styled.section`
 `
 
 const ImageWrapper = styled.div`
-  width: 550px;
   
   img {
+    max-width: 36rem;
+    display: block;
+    
+    @media (max-width: 768px) {
     max-width: 100%;
   }
-
-  @media (max-width: 768px) {
-    max-width: 100%;
   }
 `
 
 const TextWrapper = styled.div`
   margin-top: 2rem;
-  
+  flex-grow: 1;
+
   div {
     display: flex;
     column-gap: 2rem;
