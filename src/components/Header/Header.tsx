@@ -1,13 +1,21 @@
 import styled from "@emotion/styled";
-import donluislogo from "../../assets/logo_negativa_transparente.png"
-import { useEffect } from "react";
+import logo_negativa from "../../assets/logo_negativa_transparente.png"
+import logo_original from "../../assets/logo_original_transparente.png"
+import { useEffect, useState } from "react";
 
-const HeaderContainer = styled.header`
+type HeaderComponentProps = {
+  isPageScrolled: boolean
+}
+
+const HeaderContainer = styled.header<HeaderComponentProps>`
   position: fixed;
   width: 100%;
   height: 6rem;
-  border-bottom: 1px #0f171b solid;
-  transition: 0.5s linear;
+  transition: background-color 0.5s linear;
+  border-bottom: ${props => props.isPageScrolled ? "none" : "1px #0f171b solid"};
+  background-color: ${props => (props.isPageScrolled ? "#ffffff" : "transparent")};
+  box-shadow: ${props => (props.isPageScrolled ? "rgba(0, 0, 0, 0.24) 0px 3px 8px" : "none")};
+  z-index: 10;
 `
 
 const HeaderWrapper = styled.div`
@@ -33,43 +41,48 @@ const HeaderNav = styled.ul`
   column-gap: 2rem;
   color:white;
 `
-const HeaderNavItem = styled.li`
+
+const HeaderNavItem = styled.li<HeaderComponentProps>`
   list-style: none;
-  color:white;
   font-weight: 600;
   cursor: pointer;
   transition: 0.125s linear;
-  
+  color: ${props => props.isPageScrolled ? "#000000" : "#ffffff"};
+
   &:hover {
     color: #0d435b;
   }
 `
 
 function Header() {
+  const [isPageScrolled, setIsPageScrolled] = useState(false);
 
   useEffect(() => {
-    window.onscroll = function() {
-      const currentScrollPos = window.scrollY
-      if(currentScrollPos > 100) {
-        document.getElementById("navbar")!.style.backgroundColor = "#000000"
-        document.getElementById("navbar")!.style.borderBottom = "1px solid black"
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsPageScrolled(true);
       } else {
-        document.getElementById("navbar")!.style.backgroundColor = "transparent"
-        document.getElementById("navbar")!.style.borderBottom = "1px #0f171b solid";
+        setIsPageScrolled(false);
       }
-    }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   })
 
   return (
-    <HeaderContainer id="navbar">
+    <HeaderContainer isPageScrolled={isPageScrolled}>
       <HeaderWrapper>
         <HeaderLogo>
-          <img src={donluislogo} alt="logo da barbearia" />
+          <img src={isPageScrolled ? logo_original : logo_negativa} alt="logo da barbearia" />
         </HeaderLogo>
         <HeaderNav>
-          <HeaderNavItem>Inicio</HeaderNavItem>
-          <HeaderNavItem>Sobre</HeaderNavItem>
-          <HeaderNavItem>Contato</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled}>Inicio</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled}>Sobre</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled}>Contato</HeaderNavItem>
         </HeaderNav>
       </HeaderWrapper>
     </HeaderContainer>

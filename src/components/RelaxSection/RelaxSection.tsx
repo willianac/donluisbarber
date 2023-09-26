@@ -1,10 +1,90 @@
 import styled from "@emotion/styled";
+import resenha from "../../assets/resenha.jpg";
+import { AiFillCheckCircle } from "react-icons/ai"
+import { IconContext } from "react-icons";
 
+const Title = styled.h1`
+  color: black;
+  font-size: 2.85rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+`
 
+const RelaxContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  column-gap: 3rem;
+`
+
+const ImageWrapper = styled.div`
+  min-width: 550px;
+  
+  img {
+    width: 100%;
+  }
+`
+
+const TextWrapper = styled.div`
+  margin-top: 2rem;
+  
+  div {
+    display: flex;
+    column-gap: 2rem;
+
+    span {
+      display: flex;
+      column-gap: 6px;
+      align-items: center;
+
+      h3 {
+        font-weight: 600;
+      }
+    }
+
+    svg {
+      color: #8bac67;
+    }
+  }
+
+  p {
+    margin-top: 2rem;
+  }
+`
 
 function RelaxSection() {
   return (
-    <div>teste</div>
+    <>
+      <Title>Resenha</Title>
+      <RelaxContainer>
+        <ImageWrapper>
+          <img src={resenha} alt="" />
+        </ImageWrapper>
+        <TextWrapper>
+          <div>
+            <span>
+              <IconContext.Provider value={{size: "26px"}}>
+                <AiFillCheckCircle />
+              </IconContext.Provider>
+              <h3>Descontração</h3>
+            </span>
+            <span>
+              <IconContext.Provider value={{size: "26px"}}>
+                <AiFillCheckCircle />
+              </IconContext.Provider>
+              <h3>Futebol</h3>
+            </span>
+            <span>
+              <IconContext.Provider value={{size: "26px"}}>
+                <AiFillCheckCircle />
+              </IconContext.Provider>
+              <h3>Resenha pae</h3>
+            </span>
+          </div>
+          <p>Aqui na barbearia, a atmosfera descontraída é a nossa marca registrada! Não é apenas um lugar para aparar a barba ou cortar o cabelo; é um refúgio onde você pode relaxar e se sentir em casa. Nossos barbeiros não são apenas especialistas em cortes de cabelo e barbas, eles são também ótimos ouvintes e contadores de histórias. eles são também ótimos ouvintes e contadores de histórias.</p>
+        </TextWrapper>
+      </RelaxContainer>
+    </>
   )
 }
 
