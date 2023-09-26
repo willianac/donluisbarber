@@ -8,6 +8,10 @@ const Container = styled.div<ContainerProps>`
   max-width: 100%;
   padding: 6rem 18rem 6rem 18rem;
   background-color: ${props => props.bgColor};
+
+  @media (max-width: 768px) {
+    padding: 4rem 16px 4rem 16px;
+  }
 `
 
 type BoxProps = {

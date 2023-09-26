@@ -13,6 +13,10 @@ const HeroBox = styled.main`
   align-items: center;
   max-width: 40rem;
   margin: 12rem auto 0 auto;
+
+  @media (max-width: 768px) {
+    margin: 8rem auto 0 auto;
+  }
 `
 
 const HeroText = styled.h1`
@@ -21,12 +25,22 @@ const HeroText = styled.h1`
   font-size: 3.7rem;
   text-align: center;
   line-height: 4.1rem;
+
+  @media (max-width: 768px) {
+    font-size: 3.2rem
+  }
 `
 
 const AddressText = styled.span`
   color:white;
   font-size: 1.15rem;
   margin-top: 12px;
+
+  @media (max-width: 768px) {
+    padding-left : 16px;
+    padding-right: 16px;
+    text-align: center;
+  }
 `
 
 const CTAButton = styled.button`

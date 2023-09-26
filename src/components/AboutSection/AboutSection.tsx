@@ -10,6 +10,7 @@ const Title = styled.h1`
 const AboutContainer = styled.section`
   display: flex;
   gap: 10rem;
+  
   p {
     line-height: 2rem;
     margin-top: 1.5rem;
@@ -18,6 +19,11 @@ const AboutContainer = styled.section`
   img {
     max-width: 24rem;
     object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
   }
 `
 

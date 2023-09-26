@@ -17,6 +17,11 @@ const ServicesContainer = styled.section`
   display: flex;
   justify-content: center;
   gap: 3.5rem;
+
+  @media (max-width: 768px) {
+   flex-direction: column;
+   align-items: center;
+  }
 `
 
 const ServiceItem = styled.div`
@@ -48,6 +53,10 @@ const ServiceItem = styled.div`
     svg, span {
       transform: translateY(-4rem);
     }
+  }
+
+  @media (max-width: 280px) {
+    width: 100%;
   }
 `
 

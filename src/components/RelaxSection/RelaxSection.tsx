@@ -15,13 +15,21 @@ const RelaxContainer = styled.section`
   display: flex;
   justify-content: center;
   column-gap: 3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const ImageWrapper = styled.div`
-  min-width: 550px;
+  width: 550px;
   
   img {
-    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
   }
 `
 
@@ -40,10 +48,19 @@ const TextWrapper = styled.div`
       h3 {
         font-weight: 600;
       }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     svg {
       color: #8bac67;
+    }
+
+    @media (max-width: 768px) {
+      column-gap: 0.6rem;
     }
   }
 
