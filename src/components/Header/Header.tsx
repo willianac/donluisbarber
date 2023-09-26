@@ -73,6 +73,11 @@ function Header() {
     };
   })
 
+  function scrollTo(element: string) {
+    const elementOffset = document.getElementById(element)!.getBoundingClientRect().top + window.scrollY - 190;
+    window.scrollTo({ top: elementOffset , behavior: "smooth"})
+  }
+
   return (
     <HeaderContainer isPageScrolled={isPageScrolled}>
       <HeaderWrapper>
@@ -80,9 +85,9 @@ function Header() {
           <img src={isPageScrolled ? logo_original : logo_negativa} alt="logo da barbearia" />
         </HeaderLogo>
         <HeaderNav>
-          <HeaderNavItem isPageScrolled={isPageScrolled}>Inicio</HeaderNavItem>
-          <HeaderNavItem isPageScrolled={isPageScrolled}>Sobre</HeaderNavItem>
-          <HeaderNavItem isPageScrolled={isPageScrolled}>Contato</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled} onClick={() => scrollTo("home")}>Inicio</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled} onClick={() => scrollTo("about")}>Sobre</HeaderNavItem>
+          <HeaderNavItem isPageScrolled={isPageScrolled} onClick={() => scrollTo("services")}>Serviços</HeaderNavItem>
         </HeaderNav>
       </HeaderWrapper>
     </HeaderContainer>

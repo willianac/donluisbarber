@@ -10,7 +10,7 @@ const BoxWithImage = styled.div`
 
 function ContainerImage({ children }: {children: React.ReactNode}) {
   return (
-    <BoxWithImage>
+    <BoxWithImage id="home">
       {children}
     </BoxWithImage>
   )

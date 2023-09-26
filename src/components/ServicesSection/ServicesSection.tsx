@@ -54,7 +54,7 @@ const ServiceItem = styled.div`
 function ServicesSection() {
   return (
     <>
-      <Title>Serviços</Title>
+      <Title id="services">Serviços</Title>
       <Description>Serviços oferecidos no espaço Don Luis Barbershop</Description>
       <ServicesContainer>
         <ServiceItem>
