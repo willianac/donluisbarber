@@ -1,16 +1,30 @@
 import styled from "@emotion/styled";
-import { GiBeard, GiRazor } from "react-icons/gi"
-import { IoMdCut } from "react-icons/io"
+import { GiRazor } from "react-icons/gi"
 import { IconContext } from "react-icons";
+import { TbRazorElectric } from "react-icons/tb"
+import { GiComb } from "react-icons/gi"
+
+import barbaECabelo from "../../assets/cabeloEBarba.jpg";
+import barba from "../../assets/barba.jpg";
+import platinado from "../../assets/platinado.jpg";
 
 const Title = styled.h1`
   color: white;
   font-size: 2.85rem;
   font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `
 const Description = styled.p`
   color:white;
   margin-bottom: 3rem;
+
+  @media (max-width: 480px) {
+    text-align: center;
+  }
 `
 
 const ServicesContainer = styled.section`
@@ -25,38 +39,46 @@ const ServicesContainer = styled.section`
 `
 
 const ServiceItem = styled.div`
-  color: white;
   width: 18rem;
   height: 20rem;
-  border: 1px solid #ffffff;
+  position: relative;
+  color: #ffffff;
+  cursor: pointer;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+    transform: scale(1.2);
+  }
+
+  &:hover img {
+    filter: brightness(100%);
+  }
+
+  &:hover div {
+    transform: translateY(-4rem);
+    opacity: 0;
+  } 
+`
+
+const ServiceDescription = styled.div`
+  position: absolute;
+  z-index: 5;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
-  padding-bottom: 1rem;
-  cursor: pointer;
+  bottom: 1.55rem;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
 
   span {
     font-size: 1.3rem;
     font-weight: 500;
-    padding: 12px;
-  }
-
-  svg, span {
-    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
-  }
-
-  &:hover {
-    background-color: #ffffff;
-    color: black;
-    svg, span {
-      transform: translateY(-4rem);
-    }
-  }
-
-  @media (max-width: 280px) {
-    width: 100%;
   }
 `
 
@@ -67,22 +89,31 @@ function ServicesSection() {
       <Description>Serviços oferecidos no espaço Don Luis Barbershop</Description>
       <ServicesContainer>
         <ServiceItem>
-          <IconContext.Provider value={{size: "3rem"}}>
-            <IoMdCut />
-          </IconContext.Provider>
-          <span>Cabelo</span>
+          <img src={barbaECabelo} alt="um homem com barba e cabelo feitos" />
+          <ServiceDescription>
+            <IconContext.Provider value={{size: "2.5rem"}}>
+              <TbRazorElectric />
+            </IconContext.Provider>
+            <span>Barba e Cabelo</span>
+          </ServiceDescription>
         </ServiceItem>
         <ServiceItem>
-          <IconContext.Provider value={{size: "3rem"}}>
-            <GiBeard />
-          </IconContext.Provider>
-          <span>Barba</span>
+          <img src={barba} alt="um barbeiro fazendo barba" />
+          <ServiceDescription>
+            <IconContext.Provider value={{size: "2.5rem"}}>
+              <GiRazor />
+            </IconContext.Provider>
+            <span>Barba</span>
+          </ServiceDescription>
         </ServiceItem>
         <ServiceItem>
-          <IconContext.Provider value={{size: "3rem"}}>
-            <GiRazor />
-          </IconContext.Provider>
-          <span>Sobrancelha</span>
+          <img src={platinado} alt="um jovem com seu cabelo platinado" />
+          <ServiceDescription>
+            <IconContext.Provider value={{size: "2.5rem"}}>
+              <GiComb />
+            </IconContext.Provider>
+            <span>Platinado</span>
+          </ServiceDescription>
         </ServiceItem>
       </ServicesContainer>
     </>

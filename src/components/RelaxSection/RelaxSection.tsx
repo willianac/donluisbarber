@@ -9,6 +9,11 @@ const Title = styled.h1`
   font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+
 `
 
 const RelaxContainer = styled.section`

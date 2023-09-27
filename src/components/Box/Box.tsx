@@ -9,6 +9,10 @@ const Container = styled.div<ContainerProps>`
   padding: 6rem 18rem 6rem 18rem;
   background-color: ${props => props.bgColor};
 
+  @media (max-width: 1500px) {
+    padding: 6rem 10rem 6rem 10rem;
+  }
+
   @media (max-width: 768px) {
     padding: 4rem 16px 4rem 16px;
   }

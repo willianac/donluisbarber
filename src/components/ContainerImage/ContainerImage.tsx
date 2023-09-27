@@ -6,6 +6,10 @@ const BoxWithImage = styled.div`
   height: 100vh;
   background-size: cover;
   padding-top: 6rem;
+
+  @media (max-width: 768px) {
+    background-position: center;
+  }
 `
 
 function ContainerImage({ children }: {children: React.ReactNode}) {
