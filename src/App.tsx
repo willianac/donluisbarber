@@ -6,6 +6,7 @@ import Box from "./components/Box/Box"
 import AboutSection from "./components/AboutSection/AboutSection"
 import ServicesSection from "./components/ServicesSection/ServicesSection"
 import RelaxSection from "./components/RelaxSection/RelaxSection"
+import ProductsSection from "./components/ProductsSection/ProductsSection"
 
 const HeroBox = styled.main`
   display: flex;
@@ -78,6 +79,9 @@ function App() {
       </Box>
       <Box bgColor="#f6f6f7">
         <RelaxSection />
+      </Box>
+      <Box bgColor="#170e0c">
+        <ProductsSection />
       </Box>
     </>
   )

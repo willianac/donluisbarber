@@ -5,6 +5,10 @@ const Title = styled.h1`
   color: black;
   font-size: 2.85rem;
   font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `
 
 const AboutContainer = styled.section`

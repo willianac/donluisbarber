@@ -12,10 +12,19 @@ const Title = styled.h1`
   color: white;
   font-size: 2.85rem;
   font-weight: 700;
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `
 const Description = styled.p`
   color:white;
   margin-bottom: 3rem;
+
+  @media (max-width: 480px) {
+    text-align: center;
+  }
 `
 
 const ServicesContainer = styled.section`
