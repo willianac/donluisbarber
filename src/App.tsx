@@ -7,6 +7,9 @@ import AboutSection from "./components/AboutSection/AboutSection"
 import ServicesSection from "./components/ServicesSection/ServicesSection"
 import RelaxSection from "./components/RelaxSection/RelaxSection"
 import ProductsSection from "./components/ProductsSection/ProductsSection"
+//import ProfessionalsSection from "./components/ProfessionalsSection/ProfessionalsSection"
+import LocalizationSection from "./components/LocalizationSection/LocalizationSection"
+import WhatsAppIcon from "./components/WhatsappIcon/WhatsAppIcon"
 
 const HeroBox = styled.main`
   display: flex;
@@ -61,6 +64,7 @@ const CTAButton = styled.button`
 `
 
 function App() {
+
   return (
     <>
       <Header />
@@ -68,7 +72,9 @@ function App() {
         <HeroBox>
           <HeroText>A melhor barbearia do Fonseca.</HeroText>
           <AddressText>Rua Duarte Galvão, 10, Fonseca, Niterói - RJ</AddressText>
-          <CTAButton>Entrar em contato</CTAButton>
+          <a href="https://wa.me/5521981144496" target="_blank" rel="noopener noreferrer" aria-label="Chat com a barbearia">
+						<CTAButton>Entrar em contato</CTAButton>
+					</a>
         </HeroBox>
       </ContainerImage>
       <Box bgColor="#f6f6f7">
@@ -83,6 +89,14 @@ function App() {
       <Box bgColor="#170e0c">
         <ProductsSection />
       </Box>
+      {/* <Box bgColor="#f6f6f7">
+        <ProfessionalsSection />
+      </Box>
+      <Box bgColor="#170e0c"/> */}
+			<Box bgColor="#f6f6f7">
+				<LocalizationSection />
+			</Box>
+			<WhatsAppIcon />
     </>
   )
 }

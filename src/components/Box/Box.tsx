@@ -19,7 +19,7 @@ const Container = styled.div<ContainerProps>`
 `
 
 type BoxProps = {
-  children: React.ReactNode
+  children?: React.ReactNode
   bgColor: string
 }
 
