@@ -18,6 +18,7 @@ const Title = styled.h1`
     text-align: center;
   }
 `
+
 const Description = styled.p`
   color:white;
   margin-bottom: 3rem;
